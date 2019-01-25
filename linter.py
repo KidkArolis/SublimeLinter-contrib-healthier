@@ -33,4 +33,4 @@ class Healthier(NodeLinter):
             match = self.html_pattern.match(code)
             if match:
                 code = match.group(1)
-return super(Healthier, self).run(cmd, code)
+        return super(Healthier, self).run(cmd, code)

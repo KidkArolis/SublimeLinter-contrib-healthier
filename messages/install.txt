@@ -1,6 +1,3 @@
-SublimeLinter-contrib-healthier
--------------------------------
-
 This linter plugin for SublimeLinter provides an interface to Healthier.
 
 For more information, please see:
