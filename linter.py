@@ -1,7 +1,10 @@
 """This module exports the Healthier plugin class."""
 
 import re
+import logging
 from SublimeLinter.lint import NodeLinter
+
+logger = logging.getLogger('SublimeLinter.plugin.healthier')
 
 class Healthier(NodeLinter):
     """Provides an interface to healthier."""
@@ -18,6 +21,3 @@ class Healthier(NodeLinter):
             return
         else:
             logger.error(stderr)
-
-    def run(self, cmd, code):
-        return super().run(cmd, code)
