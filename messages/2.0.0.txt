@@ -1,0 +1,7 @@
+v2.0.0
+
+Make sure you install `healthier@^2.0.0`. Healthier has been switched to use eslint formatted output and so this plugin has been updated based on the official eslint plugin. What this all means is:
+
+- it should be faster, since healthier no longer double parses the files (first via eslint, second via prettier)
+- syntax errors are handled correctly now and showed in the editor instead of being only logged
+- eslint internal errors, such as information about missing plugins is handled correctly now and showed in the editor
