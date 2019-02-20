@@ -3,6 +3,7 @@
 import json
 import logging
 import re
+import shlex
 from SublimeLinter.lint import NodeLinter
 
 logger = logging.getLogger('SublimeLinter.plugin.healthier')
@@ -10,12 +11,25 @@ logger = logging.getLogger('SublimeLinter.plugin.healthier')
 class Healthier(NodeLinter):
     """Provides an interface to the healthier executable."""
 
-    cmd = 'healthier --format json --stdin'
+    # instead of using cmd feature of SublimeLinter
+    # we implement a custom run, that doesn't show error
+    # in the status bar in case a local healthier binary
+    # is not found
+    cmd = None
+    _cmd = 'healthier --format json --stdin'
 
     line_col_base = (1, 1)
     defaults = {
-        'selector': 'source.js - meta.attribute-with-value'
+        'selector': 'source.js - meta.attribute-with-value',
+        'disable_if_not_dependency': True
     }
+
+    def run(self, cmd, code):
+        cmd = shlex.split(self._cmd)
+        cmd = self.build_cmd(cmd)
+        if not cmd:
+            return []
+        return self.communicate(cmd, code)
 
     def on_stderr(self, stderr):
         if (

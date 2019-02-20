@@ -1,0 +1,3 @@
+v2.1.0
+
+Only run this linter if it's a dependency of the project. Fix an issue where Sublime console was getting opened in case ./node_modules/.bin/healthier was missing. Now, the plugin displays `healthier (ok)` in the status bar in case healthier is missing.
