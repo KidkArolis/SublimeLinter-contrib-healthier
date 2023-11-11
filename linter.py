@@ -16,8 +16,7 @@ class Healthier(NodeLinter):
     )
 
     defaults = {
-        'enable_if_dependency': True,
-        'disable_if_not_dependency': False,
+        'disable_if_not_dependency': True,
         'selector': 'source.js, source.jsx, source.ts, source.tsx',
         '--stdin-filename': '${file}',
     }
