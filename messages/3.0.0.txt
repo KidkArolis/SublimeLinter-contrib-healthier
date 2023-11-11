@@ -1,0 +1,4 @@
+v3.0.0
+
+- Simplify the implementation of the linter to use built in NodeLinter class.
+- Set the `--stdin-filename` to make sure `eslint-import-resolver` works correctly.
